@@ -1,4 +1,4 @@
-Particle [] p = new Particle [50];
+Particle [] p = new Particle [55];
 OddBall ob;
 void setup (){
   size(500,500);
@@ -27,14 +27,18 @@ void draw() {
      ellipse ((width/2)+15, (height/2)+15, 15,15);
    fill(232, 189, 86);
    ellipse((width/2)+15, (height/2)+20, 13,13);
+   
   
+   
   frameRate(20);
   for (int i = 0; i < p.length; i++){
     p[i].show();
     p[i].move();
+    p[i].reset();
   }
   ob.show();
   ob.move();
+  ob.reset();
   
 } //end draw
 
@@ -52,6 +56,7 @@ class Particle {
    myX = width / 2;
     myY = height / 2;
    
+  
     }// end class
     
     void show() {
@@ -63,13 +68,18 @@ class Particle {
     void move(){
       myX = myX + mySpeed*(Math.cos(myA));
       myY = myY + mySpeed*(Math.sin(myA));
-      
+    }
+       
+     void reset(){
      if (myY < 200 && myX < 200){ //limit movement  
+     redraw();
     myX = width / 2;
     myY = height / 2;
     }
-  
- }
+   //mySpeed = (Math.random()*3)+1; 
+   //  myA = Math.random()*(2*Math.PI);
+ } // end reset
+ 
 }
 
 class OddBall extends Particle {
@@ -84,6 +94,7 @@ class OddBall extends Particle {
     frameRate(10);
     fill((int)(Math.random()*256) + 100,(int)(Math.random()*256) +100,(int)(Math.random()*256)+100);
     textSize(25);
+    textAlign(CENTER);
     text("Don't smoke :(", (float)myX, (float)myY);  
     
   }
@@ -91,12 +102,15 @@ class OddBall extends Particle {
      void move(){
       myX = myX + mySpeed*(Math.cos(myA));
       myY = myY + mySpeed*(Math.sin(myA));
-      
+     }
+     
+     void reset(){
     if (myY < 10 || myX > 490  || myX < 10 || myY > 490){ //limit movement  
     myX = (Math.random()*231) + 200;
     myY = (Math.random()*231) + 200;
     }
-  
- }
+  //mySpeed = (Math.random()*2)+1; 
+  //   myA = Math.random()*(2*Math.PI);
+ } //ends reset
   
 }
