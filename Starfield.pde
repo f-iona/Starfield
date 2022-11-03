@@ -65,7 +65,6 @@ class Particle {
       myY = myY + mySpeed*(Math.sin(myA));
       
      if (myY < 200 && myX < 200){ //limit movement  
-     redraw();
     myX = width / 2;
     myY = height / 2;
     }
@@ -94,7 +93,6 @@ class OddBall extends Particle {
       myY = myY + mySpeed*(Math.sin(myA));
       
     if (myY < 10 || myX > 490  || myX < 10 || myY > 490){ //limit movement  
-     redraw();
     myX = (Math.random()*231) + 200;
     myY = (Math.random()*231) + 200;
     }
