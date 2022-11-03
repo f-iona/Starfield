@@ -27,10 +27,7 @@ void draw() {
      ellipse ((width/2)+15, (height/2)+15, 15,15);
    fill(232, 189, 86);
    ellipse((width/2)+15, (height/2)+20, 13,13);
-   
-   
-   
-   
+  
   frameRate(20);
   for (int i = 0; i < p.length; i++){
     p[i].show();
@@ -55,11 +52,6 @@ class Particle {
    myX = width / 2;
     myY = height / 2;
    
-  //start at mousepressed ????
-
-  
-  
-  
     }// end class
     
     void show() {
